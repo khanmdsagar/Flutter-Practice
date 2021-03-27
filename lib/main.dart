@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:myapp/SecondActivity.dart';
 
 void main() => runApp(MyApp());
 
@@ -23,15 +24,32 @@ class Homepage extends StatefulWidget {
 }
 
 class _HomepageState extends State<Homepage> {
+
+  var name = "Sagar";
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: Drawer(
+        child: ListView(
+          children: [
+            ListTile(
+              title: Text("Home"),
+              leading: Icon(Icons.home),
+            ),
+            ListTile(
+              title: Text("Bookmark"),
+              leading: Icon(Icons.bookmark),
+            ),
+          ],
+        ),
+      ),
       appBar: AppBar(
         title: Text("MyApp"),
         elevation: 1,
-        backgroundColor: Colors.orange,
+        backgroundColor: Colors.blue,
         centerTitle: true,
-        leading: Icon(Icons.message),
+        //leading: Icon(Icons.message),
         actions: [
           IconButton(icon: Icon(Icons.add_a_photo), onPressed: () {}),
           IconButton(icon: Icon(Icons.face), onPressed: () {}),
@@ -40,18 +58,72 @@ class _HomepageState extends State<Homepage> {
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),
         backgroundColor: Colors.red[600],
+        onPressed: (){
+          Navigator.push(context, MaterialPageRoute(builder: (context)=>SecondActivity(name : name)));
+        },
       ),
-      body: ListView(
+
+      body:
+      //Padding(
+      //   padding: const EdgeInsets.all(8.0),
+      //   child: GridView.count(
+      //       crossAxisCount: 2,
+      //       mainAxisSpacing: 10,
+      //       crossAxisSpacing: 10,
+      //       children: [
+      //         Container(
+      //           decoration: BoxDecoration(
+      //               color: Colors.orange,
+      //               borderRadius: BorderRadius.circular(10),
+      //               image: DecorationImage(
+      //                   fit: BoxFit.fill,
+      //                   image: NetworkImage("https://www.apple.com/newsroom/images/product/watch/lifestyle/Apple_watch-se-watchface_09152020_carousel.jpg.large.jpg")
+      //               )
+      //           ),
+      //         ),
+      //
+      //         Container(
+      //           decoration: BoxDecoration(
+      //               color: Colors.orange,
+      //               borderRadius: BorderRadius.circular(10),
+      //               image: DecorationImage(
+      //                   fit: BoxFit.fill,
+      //                   image: NetworkImage("https://post.greatist.com/wp-content/uploads/2020/09/Apple_Watch_732x549-thumbnail-732x549.jpg")
+      //               )
+      //           )
+      //         ),
+      //         Container(
+      //           decoration: BoxDecoration(
+      //               color: Colors.orange,
+      //               borderRadius: BorderRadius.circular(10),
+      //               image: DecorationImage(
+      //                   fit: BoxFit.fill,
+      //                   image: NetworkImage("https://www.apple.com/newsroom/images/product/watch/lifestyle/Apple_watch-se-watchface_09152020_carousel.jpg.large.jpg")
+      //               )
+      //           ),
+      //         ),
+      //
+      //         Container(
+      //           decoration: BoxDecoration(
+      //               color: Colors.orange,
+      //               borderRadius: BorderRadius.circular(10),
+      //               image: DecorationImage(
+      //                   fit: BoxFit.fill,
+      //                   image: NetworkImage("https://post.greatist.com/wp-content/uploads/2020/09/Apple_Watch_732x549-thumbnail-732x549.jpg")
+      //               )
+      //           )
+      //         )
+      //       ]
+      //   ),
+      // ),
+
+
+      ListView(
         children: [
           ListTile(
             leading: Icon(Icons.face, size: 40, color: Colors.lightBlue),
             title: Text("Hello World"),
             subtitle: Text("I am Sagar"),
-          ),
-          ListTile(
-            leading: Icon(Icons.face, size: 40, color: Colors.lightBlue),
-            title: Text("Hello World"),
-            subtitle: Text("I am Raju"),
           ),
 
           Column(
@@ -65,7 +137,7 @@ class _HomepageState extends State<Homepage> {
                     width: MediaQuery.of(context).size.width/1.2,
                     //color: Colors.green,
                     decoration: BoxDecoration(
-                      color: Colors.green, 
+                      color: Colors.green,
                       borderRadius: BorderRadius.circular(10)
                     ),
                   ),
@@ -99,34 +171,6 @@ class _HomepageState extends State<Homepage> {
                     image: NetworkImage("https://webpilots.net/wp-content/uploads/2020/10/Kurulus-Osman-Episode-Bolum-28-Season-2.jpg")
                   )
                 ),
-              ),
-
-              SizedBox(height: 10),
-              Container(
-                height: MediaQuery.of(context).size.height/5,
-                width: MediaQuery.of(context).size.width/1.2,
-                color: Colors.cyan,
-              ),
-
-              SizedBox(height: 10),
-              Container(
-                height: MediaQuery.of(context).size.height/5,
-                width: MediaQuery.of(context).size.width/1.2,
-                color: Colors.green,
-              ),
-
-              SizedBox(height: 10),
-              Container(
-                height: MediaQuery.of(context).size.height/5,
-                width: MediaQuery.of(context).size.width/1.2,
-                color: Colors.red,
-              ),
-
-              SizedBox(height: 10),
-              Container(
-                height: MediaQuery.of(context).size.height/5,
-                width: MediaQuery.of(context).size.width/1.2,
-                color: Colors.blue,
               ),
 
               SizedBox(height: 10),
