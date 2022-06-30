@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:practice2/SecondActivity.dart';
 
 void main() {
   SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
@@ -20,6 +21,10 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
+      initialRoute: '/',
+      routes: {
+        '/second-activity': (context)=> SecondActivity(),
+      },
       home: HomePage(),
     );
   }
@@ -80,9 +85,10 @@ class _HomePageState extends State<HomePage> {
               ElevatedButton(
                   child: Text("Submit"),
                   onPressed: (){
-                    _formKey.currentState.validate();
-                    print(email.text);
-                    print(name.text);
+                    if(_formKey.currentState.validate()){
+                      //Navigator.push(context, MaterialPageRoute(builder: (_)=>SecondActivity()));
+                      Navigator.pushNamed(context, '/second-activity');
+                    };
                   })
 
             ],
